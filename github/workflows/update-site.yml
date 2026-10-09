@@ -1,0 +1,20 @@
+name: Update GreenLeaf Site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm site files
+        run: |
+          test -f index.html
+          echo "GreenLeaf site is ready."
+
