@@ -1,12 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سبزکود | فروشگاه کود کشاورزی | خرید حضوری</title>
+    <title>سبزکود | فروشگاه کود کشاورزی</title>
+    <meta name="description" content="وب‌سایت سبزکود؛ اطلاعات محصولات و راه‌های خرید پس از تکمیل اطلاعات واقعی منتشر می‌شود.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://a13912020.github.io/fertilizer-store/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #2d6a4f;
@@ -21,11 +26,7 @@
             --radius: 16px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Vazirmatn', Tahoma, sans-serif;
@@ -61,9 +62,7 @@
             text-decoration: none;
         }
 
-        .logo span {
-            font-size: 1.8rem;
-        }
+        .logo span { font-size: 1.8rem; }
 
         nav ul {
             display: flex;
@@ -78,9 +77,7 @@
             transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: var(--primary);
-        }
+        nav a:hover { color: var(--primary); }
 
         .btn {
             display: inline-flex;
@@ -97,10 +94,7 @@
             font-size: 1rem;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
+        .btn-primary { background: var(--primary); color: white; }
 
         .btn-primary:hover {
             background: var(--primary-dark);
@@ -114,10 +108,7 @@
             color: var(--primary);
         }
 
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
+        .btn-outline:hover { background: var(--primary); color: white; }
 
         .hero {
             background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
@@ -181,14 +172,9 @@
             gap: 0.5rem;
         }
 
-        section {
-            padding: 4.5rem 1.5rem;
-        }
+        section { padding: 4.5rem 1.5rem; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
 
         .section-title {
             text-align: center;
@@ -201,10 +187,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .section-title p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
+        .section-title p { color: var(--text-light); font-size: 1.1rem; }
 
         .products-grid {
             display: grid;
@@ -234,9 +217,7 @@
             font-size: 4rem;
         }
 
-        .product-body {
-            padding: 1.5rem;
-        }
+        .product-body { padding: 1.5rem; }
 
         .product-body h3 {
             font-size: 1.25rem;
@@ -250,30 +231,7 @@
             margin-bottom: 1rem;
         }
 
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-        }
-
-        .weight {
-            background: #e9f5ef;
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .features {
-            background: var(--white);
-        }
+        .features { background: var(--white); }
 
         .features-grid {
             display: grid;
@@ -289,9 +247,7 @@
             transition: transform 0.25s;
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-        }
+        .feature-card:hover { transform: translateY(-4px); }
 
         .feature-icon {
             width: 70px;
@@ -306,15 +262,9 @@
             color: white;
         }
 
-        .feature-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-        }
+        .feature-card h3 { margin-bottom: 0.5rem; color: var(--primary-dark); }
 
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
+        .feature-card p { color: var(--text-light); font-size: 0.95rem; }
 
         .store-section {
             background: linear-gradient(135deg, #1b4332, #2d6a4f);
@@ -328,24 +278,9 @@
             align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .store-grid {
-                grid-template-columns: 1fr;
-            }
-            nav ul {
-                display: none;
-            }
-        }
+        .store-info h2 { font-size: 2rem; margin-bottom: 1rem; }
 
-        .store-info h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .store-info p {
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
+        .store-info p { opacity: 0.9; margin-bottom: 1.5rem; }
 
         .info-item {
             display: flex;
@@ -379,10 +314,7 @@
             padding: 2rem;
         }
 
-        .map-placeholder span {
-            font-size: 3rem;
-            margin-bottom: 0.8rem;
-        }
+        .map-placeholder span { font-size: 3rem; margin-bottom: 0.8rem; }
 
         .contact-form {
             background: var(--white);
@@ -393,9 +325,7 @@
             margin: 0 auto;
         }
 
-        .form-group {
-            margin-bottom: 1.3rem;
-        }
+        .form-group { margin-bottom: 1.3rem; }
 
         .form-group label {
             display: block;
@@ -405,8 +335,7 @@
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 0.85rem 1rem;
             border: 1.5px solid #ddd;
@@ -417,16 +346,12 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
 
         footer {
             background: var(--primary-dark);
@@ -442,10 +367,7 @@
             margin: 0 auto 2rem;
         }
 
-        .footer-col h4 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
+        .footer-col h4 { margin-bottom: 1rem; font-size: 1.1rem; }
 
         .footer-col p, .footer-col a {
             color: rgba(255,255,255,0.75);
@@ -455,9 +377,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .footer-col a:hover {
-            color: white;
-        }
+        .footer-col a:hover { color: white; }
 
         .footer-bottom {
             text-align: center;
@@ -467,35 +387,18 @@
             font-size: 0.9rem;
         }
 
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--primary-dark);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: all 0.4s;
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+        @media (max-width: 768px) {
+            .store-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .nav-container { gap: 0.7rem; }
+            .nav-container > .btn { padding: 0.65rem 0.9rem; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">
-                <span>🌱</span>
-                سبزکود
-            </a>
+            <a href="#" class="logo"><span>🌱</span> سبزکود</a>
             <nav>
                 <ul>
                     <li><a href="#products">محصولات</a></li>
@@ -511,15 +414,13 @@
     <section class="hero">
         <div class="hero-content">
             <h1>کود باکیفیت برای رشد بهتر محصول شما</h1>
-            <p>فروش انواع کود شیمیایی، ارگانیک و کامل با بهترین قیمت. خرید حضوری از فروشگاه ما با مشاوره رایگان کشاورزی.</p>
+            <p>به وب‌سایت سبزکود خوش آمدید. اطلاعات محصولات و روش سفارش پس از تکمیل اطلاعات واقعی در این بخش قرار می‌گیرد.</p>
             <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
                 <a href="#products" class="btn btn-primary" style="background:white; color:var(--primary);">مشاهده محصولات</a>
                 <a href="#store" class="btn btn-outline" style="border-color:white; color:white;">آدرس فروشگاه</a>
             </div>
             <div class="hero-badges">
-                <div class="badge">✅ کیفیت تضمینی</div>
-                
-    
+                <div class="badge">🌱 معرفی محصولات</div>
                 <div class="badge">🏪 خرید حضوری</div>
             </div>
         </div>
@@ -529,79 +430,16 @@
         <div class="container">
             <div class="section-title">
                 <h2>محصولات پرفروش</h2>
-                <p>انواع کود مورد نیاز کشاورزان و باغداران</p>
+                <p>فهرست محصولات پس از تکمیل اطلاعات واقعی اضافه می‌شود.</p>
             </div>
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="product-img">🌾</div>
+                    <div class="product-img">🌱</div>
                     <div class="product-body">
-                        <h3>کود اوره ۴۶٪</h3>
-                        <p class="desc">کود ازته پرکاربرد برای رشد سبزینگی و افزایش عملکرد محصول. مناسب اکثر خاک‌های ایران.</p>
-                        <div class="product-meta">
-                            <span class="price">از ۱,۵۵۰,۰۰۰ تومان</span>
-                            <span class="weight">۵۰ کیلو</span>
-                        </div>
+                        <h3>محصولات به‌زودی معرفی می‌شوند</h3>
+                        <p class="desc">نام، مشخصات، وزن و قیمت محصولات پس از دریافت اطلاعات واقعی در این بخش قرار می‌گیرد.</p>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img">🌿</div>
-                    <div class="product-body">
-                        <h3>کود NPK 20-20-20</h3>
-                        <p class="desc">کود کامل متعادل برای تمام مراحل رشد گیاه. حاوی نیتروژن، فسفر و پتاسیم.</p>
-                        <div class="product-meta">
-                            <span class="price">از ۹۵۰,۰۰۰ تومان</span>
-                            <span class="weight">۱۰ کیلو</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">🪴</div>
-                    <div class="product-body">
-                        <h3>سوپر فسفات تریپل</h3>
-                        <p class="desc">منبع غنی فسفر برای تقویت ریشه، گلدهی و تشکیل میوه. مناسب خاک‌های فقیر از فسفر.</p>
-                        <div class="product-meta">
-                            <span class="price">از ۷,۱۶۰,۰۰۰ تومان</span>
-                            <span class="weight">۵۰ کیلو</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">🌳</div>
-                    <div class="product-body">
-                        <h3>کود سولفات پتاسیم</h3>
-                        <p class="desc">افزایش کیفیت میوه، مقاومت به تنش‌ها و بهبود رنگ و طعم محصول.</p>
-                        <div class="product-meta">
-                            <span class="price">تماس بگیرید</span>
-                            <span class="weight">۵۰ کیلو</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">🍃</div>
-                    <div class="product-body">
-                        <h3>اسید هیومیک</h3>
-                        <p class="desc">بهبود ساختار خاک، افزایش جذب مواد غذایی و تقویت ریشه. کاملاً ارگانیک.</p>
-                        <div class="product-meta">
-                            <span class="price">از ۱,۵۰۰,۰۰۰ تومان</span>
-                            <span class="weight">۱ لیتر</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img">🌊</div>
-                    <div class="product-body">
-                        <h3>کود جلبک دریایی</h3>
-                        <p class="desc">محرک رشد طبیعی، افزایش مقاومت گیاه و بهبود کیفیت محصول. مناسب محلول‌پاشی.</p>
-                        <div class="product-meta">
-                            <span class="price">از ۳,۵۰۰,۰۰۰ تومان</span>
-                            <span class="weight">۱ لیتر</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center; margin-top:2.5rem;">
-                <p style="color:var(--text-light); margin-bottom:1rem;">قیمت‌ها تقریبی و بر اساس نرخ روز است. برای قیمت دقیق و عمده تماس بگیرید.</p>
-                <a href="#contact" class="btn btn-primary">درخواست قیمت عمده</a>
             </div>
         </div>
     </section>
@@ -615,23 +453,23 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">✓</div>
-                    <h3>کیفیت تضمینی</h3>
-                    <p>تمام محصولات از برندهای معتبر و دارای آنالیز هستند.</p>
+                    <h3>اطلاعات شفاف</h3>
+                    <p>مشخصات محصولات پس از تأیید اطلاعات واقعی منتشر می‌شود.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💬</div>
-                    <h3>مشاوره تخصصی</h3>
-                    <p>کارشناسان کشاورزی ما رایگان راهنمایی می‌کنند تا بهترین کود را انتخاب کنید.</p>
+                    <h3>راهنمای محصولات</h3>
+                    <p>اطلاعات راهنمای انتخاب محصولات پس از تکمیل آماده می‌شود.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏪</div>
-                    <h3>خرید حضوری</h3>
-                    <p>می‌توانید حضوری به فروشگاه بیایید، محصول را ببینید و همان‌جا تحویل بگیرید.</p>
+                    <h3>روش خرید</h3>
+                    <p>اطلاعات روش خرید پس از مشخص‌شدن جزئیات در سایت قرار می‌گیرد.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
-                    <h3>قیمت رقابتی</h3>
-                    <p>خرید مستقیم و بدون واسطه با بهترین قیمت بازار برای کشاورزان.</p>
+                    <h3>قیمت محصولات</h3>
+                    <p>قیمت‌ها پس از دریافت اطلاعات واقعی اعلام می‌شوند.</p>
                 </div>
             </div>
         </div>
@@ -641,12 +479,76 @@
         <div class="container">
             <div class="store-grid">
                 <div class="store-info">
-                    <h2>خرید حضوری از فروشگاه</h2>
-                    <p>به فروشگاه سبزکود سر بزنید. محصول را از نزدیک ببینید، با کارشناس صحبت کنید و همان لحظه تحویل بگیرید.</p>
-                    
+                    <h2>اطلاعات فروشگاه</h2>
+                    <p>نشانی و شیوه خرید پس از دریافت اطلاعات واقعی به این بخش اضافه می‌شود.</p>
                     <div class="info-item">
                         <div class="icon">📍</div>
                         <div>
-                            <strong>آدرس</strong><br>
-                            تهران، خیابان ولیعصر، بالاتر از میدان ونک، پلاک ۱۲۳۴<br>
-                            <small sty
+                            <strong>آدرس فروشگاه</strong><br>
+                            <span>در انتظار ثبت آدرس واقعی</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">🕒</div>
+                        <div>
+                            <strong>ساعات فعالیت</strong><br>
+                            <span>بعداً اعلام می‌شود</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <span>📍</span>
+                    <strong>موقعیت فروشگاه</strong>
+                    <p>پس از ثبت آدرس واقعی، اطلاعات موقعیت اضافه می‌شود.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>تماس با سبزکود</h2>
+                <p>اطلاعات تماس پس از تکمیل در این بخش قرار می‌گیرد.</p>
+            </div>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">نام</label>
+                    <input id="contact-name" type="text" placeholder="نام شما">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">پیام</label>
+                    <textarea id="contact-message" placeholder="پیام شما" rows="4"></textarea>
+                </div>
+                <p style="color:var(--text-light); font-size:.9rem; margin-bottom:1rem;">
+                    این فرم هنوز به سامانه ارسال پیام متصل نیست.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🌱 سبزکود</h4>
+                <p>اطلاعات فروشگاه و محصولات به‌زودی تکمیل می‌شود.</p>
+            </div>
+            <div class="footer-col">
+                <h4>دسترسی سریع</h4>
+                <a href="#products">محصولات</a>
+                <a href="#features">مزایا</a>
+                <a href="#store">اطلاعات فروشگاه</a>
+                <a href="#contact">تماس</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © <span id="year"></span> سبزکود. تمامی حقوق محفوظ است.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+                    </html>
+                    
