@@ -8,18 +8,29 @@ content:
     path: products
     format: json
     filename: "{primary}.json"
+
     fields:
       - name: name
         label: نام محصول
         type: string
         required: true
+
       - name: price
         label: قیمت
         type: string
+
       - name: description
         label: توضیحات
         type: text
+
       - name: image
         label: تصویر محصول
-        type: string
-        
+        type: image
+        options:
+          path: media
+          extensions:
+            - jpg
+            - jpeg
+            - png
+            - webp
+            
