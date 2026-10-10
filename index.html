@@ -1,219 +1,751 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>سبزکود | فروشگاه کود کشاورزی</title>
-<meta name="description" content="معرفی محصولات کود کشاورزی سبزکود">
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f5faf6;color:#24352b;line-height:1.9}
-header{background:#1b4332;color:white;padding:22px 16px;text-align:center}
-header h1{margin:0;font-size:28px}
-header p{margin:5px 0 0}
-nav{background:#fff;padding:13px;text-align:center;box-shadow:0 2px 10px #0001}
-nav a{color:#2d6a4f;text-decoration:none;margin:0 12px;font-weight:bold}
-.hero{padding:45px 18px;text-align:center;background:linear-gradient(135deg,#1b4332,#40916c);color:white}
-.hero h2{font-size:28px;margin:0 0 12px}
-.hero p{margin:0}
-main{max-width:1100px;margin:auto;padding:30px 16px}
-h2.section-title{text-align:center;color:#1b4332}
-#products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 18px #1b433214}
-.product-image{height:180px;background:#d8f3dc;display:flex;align-items:center;justify-content:center;font-size:55px}
-.product-image img{width:100%;height:100%;object-fit:cover}
-.details{padding:18px}
-.details h3{margin:0 0 8px;color:#1b4332}
-.description{color:#59675e;font-size:14px}
-.price{font-weight:bold;color:#2d6a4f}
-.message{background:white;padding:22px;text-align:center;border-radius:12px;grid-column:1/-1}
-footer{background:#1b4332;color:white;text-align:center;padding:24px;margin-top:35px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سبزکود | فروشگاه کود کشاورزی</title>
+    <meta name="description" content="معرفی محصولات کود کشاورزی سبزکود و راه‌های ارتباط با فروشگاه">
+    <meta name="theme-color" content="#2d6a4f">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-dark: #1b4332;
+            --primary-light: #40916c;
+            --accent: #95d5b2;
+            --bg: #f8faf9;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --white: #fff;
+            --shadow: 0 4px 20px rgba(45,106,79,.12);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color .2s;
+        }
+
+        nav a:hover {
+            color: var(--primary-light);
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: .4rem;
+            padding: .8rem 1.4rem;
+            border-radius: 10px;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: .2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: .94;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: .8rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.22);
+            backdrop-filter: blur(8px);
+            padding: .6rem 1rem;
+            border-radius: 50px;
+            font-size: .92rem;
+        }
+
+        section {
+            padding: 4.5rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h2 {
+            color: var(--primary-dark);
+            font-size: clamp(1.7rem, 4vw, 2.3rem);
+            margin-bottom: .5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #edf2ee;
+            transition: transform .25s, box-shadow .25s;
+            min-width: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(45,106,79,.17);
+        }
+
+        .product-img {
+            height: 210px;
+            background: linear-gradient(135deg, #e9f5ef, #d8eee0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-body {
+            padding: 1.4rem;
+        }
+
+        .product-body h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: .6rem;
+        }
+
+        .desc {
+            color: var(--text-light);
+            font-size: .95rem;
+            margin-bottom: 1rem;
+            overflow-wrap: anywhere;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: .5rem;
+            flex-wrap: wrap;
+            border-top: 1px solid #edf2ee;
+            padding-top: .9rem;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .weight {
+            background: #e9f5ef;
+            color: var(--primary);
+            padding: .25rem .7rem;
+            border-radius: 20px;
+            font-size: .85rem;
+        }
+
+        .message {
+            grid-column: 1 / -1;
+            background: white;
+            border: 1px solid #e0ebe3;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .features {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.3rem;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border: 1px solid #edf2ee;
+            border-radius: var(--radius);
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: transform .25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 68px;
+            height: 68px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: .5rem;
+            color: var(--primary-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: .94rem;
+        }
+
+        .store-section {
+            background: linear-gradient(135deg, #1b4332, #2d6a4f);
+            color: white;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .store-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .store-info > p {
+            opacity: .9;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .info-item .icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .info-item small {
+            opacity: .8;
+        }
+
+        .map-placeholder {
+            min-height: 280px;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .map-placeholder span {
+            font-size: 3rem;
+            margin-bottom: .8rem;
+        }
+
+        .contact-section {
+            background: var(--bg);
+        }
+
+        .contact-card {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 3rem 1.5rem 1rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-col h3,
+        .footer-col h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255,255,255,.78);
+            font-size: .95rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: .5rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,.15);
+            padding: 1rem 0;
+            font-size: .9rem;
+            color: rgba(255,255,255,.7);
+        }
+
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                justify-content: center;
+            }
+
+            nav {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 1rem;
+                padding: .2rem 0;
+                white-space: nowrap;
+                font-size: .9rem;
+            }
+
+            .nav-container > .btn {
+                padding: .55rem 1rem;
+            }
+
+            .hero {
+                padding: 3.5rem 1rem;
+            }
+
+            section {
+                padding: 3.2rem 1rem;
+            }
+
+            .products-grid,
+            .features-grid,
+            .store-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-img {
+                height: 190px;
+            }
+
+            .contact-card {
+                padding: 1.4rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 <header>
-<h1>🌱 سبزکود</h1>
-<p>فروشگاه و معرفی کودهای کشاورزی</p>
+    <div class="nav-container">
+        <a href="#" class="logo"><span>🌱</span> سبزکود</a>
+
+        <nav>
+            <ul>
+                <li><a href="#products">محصولات</a></li>
+                <li><a href="#features">مزایا</a></li>
+                <li><a href="#store">خرید حضوری</a></li>
+                <li><a href="#contact">تماس</a></li>
+            </ul>
+        </nav>
+
+        <a href="#products" class="btn btn-primary">مشاهده محصولات</a>
+    </div>
 </header>
 
-<nav>
-<a href="#home">خانه</a>
-<a href="#products">محصولات</a>
-<a href="#contact">تماس</a>
-</nav>
-
-<section class="hero" id="home">
-<h2>به سبزکود خوش آمدید</h2>
-<p>معرفی محصولات برای رشد بهتر و سالم‌تر گیاهان شما</p>
-</section>
-
 <main>
-<section id="products">
-<h2 class="section-title">🌿 محصولات سبزکود</h2>
-<div id="products-grid">
-<div class="message">در حال بارگذاری محصولات…</div>
-</div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>کود باکیفیت برای رشد بهتر محصول شما</h1>
+            <p>
+                به سبزکود خوش آمدید؛ اینجا می‌توانید محصولات کود کشاورزی را
+                مشاهده کنید و اطلاعات هر محصول را ببینید.
+            </p>
 
-<section id="contact">
-<h2 class="section-title">تماس با سبزکود</h2>
-<p style="text-align:center">اطلاعات تماس فروشگاه به‌زودی اضافه می‌شود.</p>
-</section>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary"
+                   style="background:white;color:var(--primary)">
+                    مشاهده محصولات
+                </a>
+                <a href="#store" class="btn btn-outline"
+                   style="border-color:white;color:white">
+                    اطلاعات فروشگاه
+                </a>
+            </div>
+
+            <div class="hero-badges">
+                <div class="badge">🌱 معرفی محصولات</div>
+                <div class="badge">🪴 تنوع کود کشاورزی</div>
+                <div class="badge">🏪 اطلاعات فروشگاه</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>محصولات سبزکود</h2>
+                <p>برای دیدن محصولات ثبت‌شده کمی صبر کنید</p>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <div class="message">در حال بارگذاری محصولات…</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>چرا سبزکود؟</h2>
+                <p>اطلاعات محصولات را بررسی کنید و متناسب با نیازتان انتخاب کنید</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>معرفی محصولات</h3>
+                    <p>مشاهده نام و اطلاعات محصولات ثبت‌شده در سایت.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔎</div>
+                    <h3>اطلاعات روشن</h3>
+                    <p>جزئیات و قیمت را در صورت ثبت‌شدن برای هر محصول ببینید.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🪴</div>
+                    <h3>تنوع محصولات</h3>
+                    <p>محصولات جدید می‌توانند به فهرست سبزکود اضافه شوند.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>ارتباط با فروشگاه</h3>
+                    <p>اطلاعات تماس واقعی فروشگاه را می‌توان در این بخش قرار داد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="store" class="store-section">
+        <div class="container">
+            <div class="store-grid">
+                <div class="store-info">
+                    <h2>اطلاعات فروشگاه سبزکود</h2>
+                    <p>
+                        اطلاعات خرید حضوری و راه‌های ارتباطی را پس از تکمیل
+                        اطلاعات واقعی فروشگاه در این قسمت قرار دهید.
+                    </p>
+
+                    <div class="info-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <strong>آدرس فروشگاه</strong><br>
+                            <small>آدرس واقعی فروشگاه را در کد وارد کنید.</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon">📞</div>
+                        <div>
+                            <strong>شماره تماس</strong><br>
+                            <small>شماره تماس واقعی را در این قسمت قرار دهید.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-placeholder">
+                    <span>🏪</span>
+                    <h3>فروشگاه سبزکود</h3>
+                    <p>اطلاعات محل فروشگاه پس از تکمیل قابل نمایش است.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>ارتباط با سبزکود</h2>
+                <p>راه‌های ارتباطی واقعی را پس از آماده‌شدن اطلاعات اضافه کنید.</p>
+            </div>
+
+            <div class="contact-card">
+                <p>
+                    برای اینکه مشتریان بتوانند با شما تماس بگیرند،
+                    شماره تلفن یا لینک پشتیبانی خود را در این بخش قرار دهید.
+                </p>
+                <a href="#store" class="btn btn-primary">مشاهده اطلاعات فروشگاه</a>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer>© <span id="year"></span> سبزکود</footer>
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>🌱 سبزکود</h3>
+            <p>
+                معرفی محصولات کود کشاورزی و ارائه اطلاعات مورد نیاز
+                برای آشنایی بهتر با محصولات.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>دسترسی سریع</h4>
+            <ul>
+                <li><a href="#products">محصولات</a></li>
+                <li><a href="#features">مزایا</a></li>
+                <li><a href="#store">خرید حضوری</a></li>
+                <li><a href="#contact">تماس</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>اطلاعات سایت</h4>
+            <p>فهرست محصولات از فایل‌های ثبت‌شده در مخزن گیت‌هاب خوانده می‌شود.</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © <span id="year"></span> سبزکود | همه حقوق محفوظ است.
+    </div>
+</footer>
 
 <script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-const grid = document.getElementById("products-grid");
+    const grid = document.getElementById("products-grid");
 
-function showMessage(message) {
-  grid.replaceChildren();
-  const box = document.createElement("div");
-  box.className = "message";
-  box.textContent = message;
-  grid.appendChild(box);
-}
+    function showMessage(message) {
+        grid.replaceChildren();
 
-function firstValue(obj, keys) {
-  for (const key of keys) {
-    if (obj[key] !== undefined &&
-        obj[key] !== null &&
-        String(obj[key]).trim() !== "") {
-      return obj[key];
-    }
-  }
-  return "";
-}
-
-function showProduct(product) {
-  const name = firstValue(product, [
-    "name", "title", "product_name", "نام"
-  ]);
-  if (!name) return false;
-
-  const card = document.createElement("article");
-  card.className = "card";
-
-  const imageBox = document.createElement("div");
-  imageBox.className = "product-image";
-
-  const imageUrl = firstValue(product, [
-    "image", "image_url", "photo", "photo_url", "thumbnail"
-  ]);
-
-  if (imageUrl) {
-    const img = document.createElement("img");
-    img.src = imageUrl;
-    img.alt = name;
-    img.onerror = () => {
-      imageBox.replaceChildren();
-      imageBox.textContent = "🌱";
-    };
-    imageBox.appendChild(img);
-  } else {
-    imageBox.textContent = "🌱";
-  }
-
-  const details = document.createElement("div");
-  details.className = "details";
-
-  const title = document.createElement("h3");
-  title.textContent = name;
-  details.appendChild(title);
-
-  const description = firstValue(product, [
-    "description", "desc", "details", "توضیحات", "مشخصات"
-  ]);
-
-  if (description) {
-    const p = document.createElement("p");
-    p.className = "description";
-    p.textContent = description;
-    details.appendChild(p);
-  }
-
-  const price = firstValue(product, ["price", "cost", "قیمت"]);
-
-  if (price !== "") {
-    const p = document.createElement("p");
-    p.className = "price";
-    p.textContent = "قیمت: " + price +
-      (product.currency ? " " + product.currency : "");
-    details.appendChild(p);
-  }
-
-  card.append(imageBox, details);
-  grid.appendChild(card);
-  return true;
-}
-
-async function loadProducts() {
-  showMessage("در حال بارگذاری محصولات…");
-
-  try {
-    const api =
-      "https://api.github.com/repos/a13912020/fertilizer-store/contents/products?ref=main";
-
-    const response = await fetch(api, {
-      headers: { Accept: "application/vnd.github+json" }
-    });
-
-    if (!response.ok) {
-      throw new Error("دریافت فهرست محصولات ناموفق بود (" +
-        response.status + ")");
+        const box = document.createElement("div");
+        box.className = "message";
+        box.textContent = message;
+        grid.appendChild(box);
     }
 
-    const files = await response.json();
+    function getValue(product, keys) {
+        for (const key of keys) {
+            const value = product[key];
 
-    if (!Array.isArray(files)) {
-      throw new Error("پوشه محصولات قابل خواندن نیست.");
+            if (value !== undefined && value !== null &&
+                String(value).trim() !== "") {
+                return String(value).trim();
+            }
+        }
+
+        return "";
     }
 
-    const jsonFiles = files.filter(file =>
-      file.type === "file" &&
-      file.name.toLowerCase().endsWith(".json")
-    );
+    function showProduct(product) {
+        const name = getValue(product, [
+            "name", "title", "product_name", "نام"
+        ]);
 
-    if (jsonFiles.length === 0) {
-      showMessage("هنوز محصولی ثبت نشده است.");
-      return;
-    }
+        if (!name) return false;
 
-    grid.replaceChildren();
-    let count = 0;
+        const description = getValue(product, [
+            "description", "desc", "details", "توضیحات", "مشخصات"
+        ]);
 
-    for (const file of jsonFiles) {
-      try {
-        const result = await fetch(file.download_url);
-        if (!result.ok) continue;
-
-        const product = await result.json();
-
-        if (product.published === false ||
-            product.active === false) continue;
-
-        if (showProduct(product)) count++;
-      } catch (error) {
-        console.error("خطا در خواندن فایل محصول:", file.name, error);
-      }
-    }
-
-    if (count === 0) {
-      showMessage("فایل‌ها پیدا شدند، اما محصول قابل نمایش نبود. نام محصول را در فایل JSON بررسی کنید.");
-    }
-
-  } catch (error) {
-    console.error("خطای بارگذاری محصولات:", error);
-    showMessage(
-      "بارگذاری محصولات انجام نشد. اینترنت را بررسی کنید و صفحه را دوباره باز کنید. اگر مشکل باقی ماند، باید اتصال به گیت‌هاب بررسی شود."
-    );
-  }
-}
-
-loadProducts();
-</script>
-</body>
-</html>
+        const 
