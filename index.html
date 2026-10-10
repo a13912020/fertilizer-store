@@ -748,4 +748,151 @@
             "description", "desc", "details", "توضیحات", "مشخصات"
         ]);
 
-        const 
+     <script>
+(() => {
+    const grid = document.getElementById("products-grid");
+    const year = document.getElementById("year");
+
+    if (year) year.textContent = new Date().getFullYear();
+
+    const API =
+        "https://api.github.com/repos/a13912020/fertilizer-store/contents/products?ref=main";
+
+    function message(text) {
+        grid.replaceChildren();
+        const box = document.createElement("div");
+        box.className = "message";
+        box.textContent = text;
+        grid.appendChild(box);
+    }
+
+    function value(obj, keys) {
+        for (const key of keys) {
+            if (obj[key] !== undefined && obj[key] !== null &&
+                String(obj[key]).trim() !== "") {
+                return String(obj[key]).trim();
+            }
+        }
+        return "";
+    }
+
+    function makeProduct(product) {
+        const name = value(product, ["name", "title", "نام"]);
+        if (!name) return null;
+
+        const description = value(product, [
+            "description", "desc", "details", "توضیحات"
+        ]);
+        const price = value(product, ["price", "قیمت"]);
+        let img = value(product, ["image", "img", "photo", "تصویر"]);
+
+        if (img && !/^https?:\/\//i.test(img)) {
+            img = "https://raw.githubusercontent.com/a13912020/fertilizer-store/main/" +
+                img.replace(/^\/+/, "");
+        }
+
+        const card = document.createElement("article");
+        card.className = "product-card";
+
+        if (img) {
+            const image = document.createElement("img");
+            image.className = "product-img";
+            image.src = img;
+            image.alt = name;
+            image.loading = "lazy";
+            image.onerror = () => image.remove();
+            card.appendChild(image);
+        } else {
+            const placeholder = document.createElement("div");
+            placeholder.className = "product-img";
+            placeholder.textContent = "🌱";
+            placeholder.style.cssText =
+                "display:flex;align-items:center;justify-content:center;font-size:48px;background:#f0f7ef;";
+            card.appendChild(placeholder);
+        }
+
+        const info = document.createElement("div");
+        info.className = "product-info";
+
+        const title = document.createElement("h3");
+        title.textContent = name;
+        info.appendChild(title);
+
+        if (description) {
+            const desc = document.createElement("p");
+            desc.textContent = description;
+            info.appendChild(desc);
+        }
+
+        if (price) {
+            const priceText = document.createElement("p");
+            priceText.className = "product-price";
+            priceText.textContent = "قیمت: " + price;
+            info.appendChild(priceText);
+        }
+
+        const storeNote = document.createElement("p");
+        storeNote.textContent = "🏪 خرید فقط به‌صورت حضوری";
+        info.appendChild(storeNote);
+
+        card.appendChild(info);
+        return card;
+    }
+
+    async function loadProducts() {
+        message("در حال دریافت محصولات…");
+
+        try {
+            const response = await fetch(API, {
+                headers: { "Accept": "application/vnd.github+json" },
+                cache: "no-store"
+            });
+
+            if (!response.ok) {
+                throw new Error("GitHub API: " + response.status);
+            }
+
+            const files = await response.json();
+            const jsonFiles = files.filter(file =>
+                file.type === "file" && file.name.endsWith(".json")
+            );
+
+            if (jsonFiles.length === 0) {
+                message("هنوز محصولی ثبت نشده است.");
+                return;
+            }
+
+            const products = await Promise.all(
+                jsonFiles.map(async file => {
+                    const res = await fetch(file.download_url, {
+                        cache: "no-store"
+                    });
+                    if (!res.ok) return null;
+                    return await res.json();
+                })
+            );
+
+            grid.replaceChildren();
+            let count = 0;
+
+            products.forEach(product => {
+                if (!product) return;
+                const card = makeProduct(product);
+                if (card) {
+                    grid.appendChild(card);
+                    count++;
+                }
+            });
+
+            if (count === 0) {
+                message("محصولی با نام معتبر پیدا نشد. اطلاعات محصولات را در Pages CMS بررسی کن.");
+            }
+        } catch (error) {
+            console.error("SabzKood products error:", error);
+            message("محصولات بارگذاری نشدند. اتصال اینترنت و فایل‌های پوشه products در گیت‌هاب را بررسی کن.");
+        }
+    }
+
+    loadProducts();
+})();
+</script>
