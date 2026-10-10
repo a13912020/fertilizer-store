@@ -1,872 +1,219 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سبزکود | فروشگاه کود کشاورزی</title>
-  <meta name="description" content="وب‌سایت سبزکود؛ معرفی محصولات کود کشاورزی و راه‌های خرید.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://a13912020.github.io/fertilizer-store/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #2d6a4f;
-      --primary-dark: #1b4332;
-      --primary-light: #40916c;
-      --accent: #95d5b2;
-      --bg: #f8faf9;
-      --text: #1a1a1a;
-      --text-light: #555;
-      --white: #ffffff;
-      --shadow: 0 4px 20px rgba(45, 106, 79, 0.12);
-      --radius: 16px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    header {
-      background: var(--white);
-      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: .7rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .logo span {
-      font-size: 1.8rem;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      transition: color .2s;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .75rem 1.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all .25s;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(45,106,79,.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
-      color: white;
-      padding: 5rem 1.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(149,213,178,.15) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      margin-bottom: 1.2rem;
-      line-height: 1.3;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      opacity: .92;
-      margin: 0 auto 2rem;
-      max-width: 600px;
-    }
-
-    .hero-badges {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 2.5rem;
-    }
-
-    .badge {
-      background: rgba(255,255,255,.15);
-      backdrop-filter: blur(8px);
-      padding: .7rem 1.3rem;
-      border-radius: 50px;
-      font-size: .95rem;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-
-    section {
-      padding: 4.5rem 1.5rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      color: var(--primary-dark);
-      margin-bottom: .5rem;
-    }
-
-    .section-title p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(45,106,79,.18);
-    }
-
-    .product-img {
-      height: 180px;
-      background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      overflow: hidden;
-    }
-
-    .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .product-body {
-      padding: 1.5rem;
-    }
-
-    .product-body h3 {
-      font-size: 1.25rem;
-      margin-bottom: .4rem;
-      color: var(--primary-dark);
-    }
-
-    .product-body .desc {
-      color: var(--text-light);
-      font-size: .95rem;
-      margin-bottom: 1rem;
-      white-space: pre-line;
-    }
-
-    .product-price {
-      font-weight: 800;
-      color: var(--primary);
-      margin-top: .8rem;
-      font-size: 1.05rem;
-    }
-
-    .loading-message {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 2rem;
-      background: white;
-      border-radius: var(--radius);
-      color: var(--text-light);
-    }
-
-    .features {
-      background: var(--white);
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature-card {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      border-radius: var(--radius);
-      background: var(--bg);
-      transition: transform .25s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .feature-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      margin: 0 auto 1.2rem;
-      color: white;
-    }
-
-    .feature-card h3 {
-      margin-bottom: .5rem;
-      color: var(--primary-dark);
-    }
-
-    .feature-card p {
-      color: var(--text-light);
-      font-size: .95rem;
-    }
-
-    .store-section {
-      background: linear-gradient(135deg, #1b4332, #2d6a4f);
-      color: white;
-    }
-
-    .store-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .store-info h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .store-info p {
-      opacity: .9;
-      margin-bottom: 1.5rem;
-    }
-
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .info-item .icon {
-      width: 42px;
-      height: 42px;
-      background: rgba(255,255,255,.15);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .map-placeholder {
-      background: rgba(255,255,255,.1);
-      border-radius: var(--radius);
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 2px dashed rgba(255,255,255,.3);
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .map-placeholder span {
-      font-size: 3rem;
-      margin-bottom: .8rem;
-    }
-
-    .contact-form {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .form-group {
-      margin-bottom: 1.3rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: .4rem;
-      font-weight: 500;
-      color: var(--primary-dark);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: .85rem 1rem;
-      border: 1.5px solid #ddd;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 1rem;
-      transition: border-color .2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    footer {
-      background: var(--primary-dark);
-      color: white;
-      padding: 3rem 1.5rem 1.5rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-    }
-
-    .footer-col h4 {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .footer-col p,
-    .footer-col a {
-      color: rgba(255,255,255,.75);
-      text-decoration: none;
-      font-size: .95rem;
-      display: block;
-      margin-bottom: .5rem;
-    }
-
-    .footer-col a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,.15);
-      color: rgba(255,255,255,.6);
-      font-size: .9rem;
-    }
-
-    @media (max-width: 768px) {
-      .store-grid {
-        grid-template-columns: 1fr;
-      }
-
-      nav ul {
-        display: none;
-      }
-
-      .nav-container > .btn {
-        padding: .65rem .9rem;
-        font-size: .85rem;
-      }
-
-      .hero {
-        padding: 3.5rem 1.2rem;
-      }
-
-      .hero p {
-        font-size: 1.05rem;
-      }
-
-      .section-title h2 {
-        font-size: 1.7rem;
-      }
-
-      .contact-form {
-        padding: 1.5rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سبزکود | فروشگاه کود کشاورزی</title>
+<meta name="description" content="معرفی محصولات کود کشاورزی سبزکود">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f5faf6;color:#24352b;line-height:1.9}
+header{background:#1b4332;color:white;padding:22px 16px;text-align:center}
+header h1{margin:0;font-size:28px}
+header p{margin:5px 0 0}
+nav{background:#fff;padding:13px;text-align:center;box-shadow:0 2px 10px #0001}
+nav a{color:#2d6a4f;text-decoration:none;margin:0 12px;font-weight:bold}
+.hero{padding:45px 18px;text-align:center;background:linear-gradient(135deg,#1b4332,#40916c);color:white}
+.hero h2{font-size:28px;margin:0 0 12px}
+.hero p{margin:0}
+main{max-width:1100px;margin:auto;padding:30px 16px}
+h2.section-title{text-align:center;color:#1b4332}
+#products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 18px #1b433214}
+.product-image{height:180px;background:#d8f3dc;display:flex;align-items:center;justify-content:center;font-size:55px}
+.product-image img{width:100%;height:100%;object-fit:cover}
+.details{padding:18px}
+.details h3{margin:0 0 8px;color:#1b4332}
+.description{color:#59675e;font-size:14px}
+.price{font-weight:bold;color:#2d6a4f}
+.message{background:white;padding:22px;text-align:center;border-radius:12px;grid-column:1/-1}
+footer{background:#1b4332;color:white;text-align:center;padding:24px;margin-top:35px}
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="nav-container">
-      <a href="#top" class="logo"><span>🌱</span> سبزکود</a>
+<header>
+<h1>🌱 سبزکود</h1>
+<p>فروشگاه و معرفی کودهای کشاورزی</p>
+</header>
 
-      <nav>
-        <ul>
-          <li><a href="#products">محصولات</a></li>
-          <li><a href="#features">مزایا</a></li>
-          <li><a href="#store">خرید حضوری</a></li>
-          <li><a href="#contact">تماس</a></li>
-        </ul>
-      </nav>
+<nav>
+<a href="#home">خانه</a>
+<a href="#products">محصولات</a>
+<a href="#contact">تماس</a>
+</nav>
 
-      <a href="#store" class="btn btn-primary">📍 مراجعه حضوری</a>
-    </div>
-  </header>
+<section class="hero" id="home">
+<h2>به سبزکود خوش آمدید</h2>
+<p>معرفی محصولات برای رشد بهتر و سالم‌تر گیاهان شما</p>
+</section>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-content">
-        <h1>کود باکیفیت برای رشد بهتر محصول شما</h1>
-        <p>به وب‌سایت سبزکود خوش آمدید. محصولات و اطلاعات خرید را در اینجا مشاهده کنید.</p>
+<main>
+<section id="products">
+<h2 class="section-title">🌿 محصولات سبزکود</h2>
+<div id="products-grid">
+<div class="message">در حال بارگذاری محصولات…</div>
+</div>
+</section>
 
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-          <a href="#products" class="btn btn-primary" style="background:white;color:var(--primary)">مشاهده محصولات</a>
-          <a href="#store" class="btn btn-outline" style="border-color:white;color:white">آدرس فروشگاه</a>
-        </div>
+<section id="contact">
+<h2 class="section-title">تماس با سبزکود</h2>
+<p style="text-align:center">اطلاعات تماس فروشگاه به‌زودی اضافه می‌شود.</p>
+</section>
+</main>
 
-        <div class="hero-badges">
-          <div class="badge">🌱 معرفی محصولات</div>
-          <div class="badge">🏪 خرید حضوری</div>
-        </div>
-      </div>
-    </section>
+<footer>© <span id="year"></span> سبزکود</footer>
 
-    <section id="products">
-      <div class="container">
-        <div class="section-title">
-          <h2>محصولات پرفروش</h2>
-          <p>محصولات این بخش از فایل‌های پوشه products در مخزن GitHub خوانده می‌شوند.</p>
-        </div>
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-        <div class="products-grid" id="products-grid" aria-live="polite">
-          <div class="loading-message">در حال بارگذاری محصولات…</div>
-        </div>
-      </div>
-    </section>
+const grid = document.getElementById("products-grid");
 
-    <section id="features" class="features">
-      <div class="container">
-        <div class="section-title">
-          <h2>چرا سبزکود؟</h2>
-          <p>ما فقط کود نمی‌فروشیم، همراه رشد محصول شما هستیم</p>
-        </div>
+function showMessage(message) {
+  grid.replaceChildren();
+  const box = document.createElement("div");
+  box.className = "message";
+  box.textContent = message;
+  grid.appendChild(box);
+}
 
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">✓</div>
-            <h3>اطلاعات شفاف</h3>
-            <p>مشخصات محصولات در صفحه هر محصول نمایش داده می‌شود.</p>
-          </div>
+function firstValue(obj, keys) {
+  for (const key of keys) {
+    if (obj[key] !== undefined &&
+        obj[key] !== null &&
+        String(obj[key]).trim() !== "") {
+      return obj[key];
+    }
+  }
+  return "";
+}
 
-          <div class="feature-card">
-            <div class="feature-icon">💬</div>
-            <h3>راهنمای محصولات</h3>
-            <p>توضیحات ثبت‌شده برای هر محصول در دسترس مشتریان است.</p>
-          </div>
+function showProduct(product) {
+  const name = firstValue(product, [
+    "name", "title", "product_name", "نام"
+  ]);
+  if (!name) return false;
 
-          <div class="feature-card">
-            <div class="feature-icon">🏪</div>
-            <h3>روش خرید</h3>
-            <p>برای ثبت روش خرید، اطلاعات فروشگاه را تکمیل کنید.</p>
-          </div>
+  const card = document.createElement("article");
+  card.className = "card";
 
-          <div class="feature-card">
-            <div class="feature-icon">📦</div>
-            <h3>قیمت محصولات</h3>
-            <p>قیمت ثبت‌شده برای هر محصول در کارت آن نمایش داده می‌شود.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  const imageBox = document.createElement("div");
+  imageBox.className = "product-image";
 
-    <section id="store" class="store-section">
-      <div class="container">
-        <div class="store-grid">
-          <div class="store-info">
-            <h2>اطلاعات فروشگاه</h2>
-            <p>نشانی و شیوه خرید پس از دریافت اطلاعات واقعی به این بخش اضافه می‌شود.</p>
+  const imageUrl = firstValue(product, [
+    "image", "image_url", "photo", "photo_url", "thumbnail"
+  ]);
 
-            <div class="info-item">
-              <div class="icon">📍</div>
-              <div>
-                <strong>آدرس فروشگاه</strong><br>
-                <span>در انتظار ثبت آدرس واقعی</span>
-              </div>
-            </div>
+  if (imageUrl) {
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = name;
+    img.onerror = () => {
+      imageBox.replaceChildren();
+      imageBox.textContent = "🌱";
+    };
+    imageBox.appendChild(img);
+  } else {
+    imageBox.textContent = "🌱";
+  }
 
-            <div class="info-item">
-              <div class="icon">🕒</div>
-              <div>
-                <strong>ساعات فعالیت</strong><br>
-                <span>بعداً اعلام می‌شود</span>
-              </div>
-            </div>
-          </div>
+  const details = document.createElement("div");
+  details.className = "details";
 
-          <div class="map-placeholder">
-            <span>📍</span>
-            <strong>موقعیت فروشگاه</strong>
-            <p>پس از ثبت آدرس واقعی، اطلاعات موقعیت اضافه می‌شود.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  const title = document.createElement("h3");
+  title.textContent = name;
+  details.appendChild(title);
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>تماس با سبزکود</h2>
-          <p>اطلاعات تماس پس از تکمیل در این بخش قرار می‌گیرد.</p>
-        </div>
+  const description = firstValue(product, [
+    "description", "desc", "details", "توضیحات", "مشخصات"
+  ]);
 
-        <div class="contact-form">
-          <div class="form-group">
-            <label for="contact-name">نام</label>
-            <input id="contact-name" type="text" placeholder="نام شما">
-          </div>
+  if (description) {
+    const p = document.createElement("p");
+    p.className = "description";
+    p.textContent = description;
+    details.appendChild(p);
+  }
 
-          <div class="form-group">
-            <label for="contact-message">پیام</label>
-            <textarea id="contact-message" placeholder="پیام شما" rows="4"></textarea>
-          </div>
+  const price = firstValue(product, ["price", "cost", "قیمت"]);
 
-          <p style="color:var(--text-light);font-size:.9rem;margin-bottom:1rem">
-            این فرم هنوز به سامانه ارسال پیام متصل نیست.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
+  if (price !== "") {
+    const p = document.createElement("p");
+    p.className = "price";
+    p.textContent = "قیمت: " + price +
+      (product.currency ? " " + product.currency : "");
+    details.appendChild(p);
+  }
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>🌱 سبزکود</h4>
-        <p>معرفی محصولات کود کشاورزی.</p>
-      </div>
+  card.append(imageBox, details);
+  grid.appendChild(card);
+  return true;
+}
 
-      <div class="footer-col">
-        <h4>دسترسی سریع</h4>
-        <a href="#products">محصولات</a>
-        <a href="#features">مزایا</a>
-        <a href="#store">اطلاعات فروشگاه</a>
-        <a href="#contact">تماس</a>
-      </div>
-    </div>
+async function loadProducts() {
+  showMessage("در حال بارگذاری محصولات…");
 
-    <div class="footer-bottom">
-      © <span id="year"></span> سبزکود. تمامی حقوق محفوظ است.
-    </div>
-  </footer>
+  try {
+    const api =
+      "https://api.github.com/repos/a13912020/fertilizer-store/contents/products?ref=main";
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const response = await fetch(api, {
+      headers: { Accept: "application/vnd.github+json" }
+    });
 
-    // دریافت فهرست فایل‌های محصولات از مخزن عمومی GitHub
-    const PRODUCTS_API =
-      'https://api.github.com/repos/a13912020/fertilizer-store/contents/products?ref=main';
-
-    const grid = document.getElementById('products-grid');
-
-    function getFirst(product, keys) {
-      for (const key of keys) {
-        const value = product[key];
-
-        if (
-          value !== undefined &&
-          value !== null &&
-          String(value).trim() !== ''
-        ) {
-          return value;
-        }
-      }
-
-      return '';
+    if (!response.ok) {
+      throw new Error("دریافت فهرست محصولات ناموفق بود (" +
+        response.status + ")");
     }
 
-    function addText(parent, tag, className, value) {
-      if (
-        value === undefined ||
-        value === null ||
-        String(value).trim() === ''
-      ) {
-        return;
-      }
+    const files = await response.json();
 
-      const element = document.createElement(tag);
-
-      if (className) {
-        element.className = className;
-      }
-
-      element.textContent = String(value);
-      parent.appendChild(element);
+    if (!Array.isArray(files)) {
+      throw new Error("پوشه محصولات قابل خواندن نیست.");
     }
 
-    function renderProduct(product) {
-      const name = getFirst(product, [
-        'name',
-        'title',
-        'product_name',
-        'نام'
-      ]);
+    const jsonFiles = files.filter(file =>
+      file.type === "file" &&
+      file.name.toLowerCase().endsWith(".json")
+    );
 
-      if (!name) {
-        return null;
-      }
-
-      const card = document.createElement('article');
-      card.className = 'product-card';
-
-      const imageBox = document.createElement('div');
-      imageBox.className = 'product-img';
-
-      const imageUrl = getFirst(product, [
-        'image',
-        'image_url',
-        'photo',
-        'photo_url',
-        'thumbnail'
-      ]);
-
-      if (imageUrl) {
-        const img = document.createElement('img');
-
-        img.src = String(imageUrl);
-        img.alt = String(name);
-        img.loading = 'lazy';
-
-        img.onerror = function () {
-          imageBox.replaceChildren(
-            document.createTextNode('🌱')
-          );
-        };
-
-        imageBox.appendChild(img);
-      } else {
-        imageBox.textContent = '🌱';
-      }
-
-      card.appendChild(imageBox);
-
-      const body = document.createElement('div');
-      body.className = 'product-body';
-
-      addText(body, 'h3', '', name);
-
-      const description = getFirst(product, [
-        'description',
-        'desc',
-        'details',
-        'summary',
-        'توضیحات',
-        'مشخصات'
-      ]);
-
-      if (description) {
-        addText(body, 'p', 'desc', description);
-      }
-
-      const weight = getFirst(product, [
-        'weight',
-        'size',
-        'volume',
-        'وزن'
-      ]);
-
-      if (weight) {
-        addText(body, 'p', 'desc', 'وزن / مقدار: ' + weight);
-      }
-
-      const price = getFirst(product, [
-        'price',
-        'cost',
-        'قیمت'
-      ]);
-
-      if (price !== '') {
-        let priceText = String(price);
-
-        if (typeof price === 'number') {
-          priceText = price.toLocaleString('fa-IR');
-        }
-
-        const currency = product.currency
-          ? ' ' + product.currency
-          : '';
-
-        addText(
-          body,
-          'p',
-          'product-price',
-          'قیمت: ' + priceText + currency
-        );
-      }
-
-      card.appendChild(body);
-
-      return card;
+    if (jsonFiles.length === 0) {
+      showMessage("هنوز محصولی ثبت نشده است.");
+      return;
     }
 
-    async function loadProducts() {
-      grid.replaceChildren();
+    grid.replaceChildren();
+    let count = 0;
 
-      const loading = document.createElement('div');
-      loading.className = 'loading-message';
-      loading.textContent = 'در حال بارگذاری محصولات…';
-
-      grid.appendChild(loading);
-
+    for (const file of jsonFiles) {
       try {
-        const response = await fetch(PRODUCTS_API, {
-          headers: {
-            'Accept': 'application/vnd.github+json'
-          }
-        });
+        const result = await fetch(file.download_url);
+        if (!result.ok) continue;
 
-        if (!response.ok) {
-          throw new Error('GitHub API status: ' + response.status);
-        }
+        const product = await result.json();
 
-        const files = await response.json();
+        if (product.published === false ||
+            product.active === false) continue;
 
-        if (!Array.isArray(files)) {
-          throw new Error('پوشه محصولات خوانده نشد');
-        }
+        if (showProduct(product)) count++;
+      } catch (error) {
+        console.error("خطا در خواندن فایل محصول:", file.name, error);
+      }
+    }
 
-        const jsonFiles = files.filter(function (file) {
-          return (
-            file.type === 'file' &&
-            file.name.toLowerCase().endsWith('.json')
-          );
-        });
+    if (count === 0) {
+      showMessage("فایل‌ها پیدا شدند، اما محصول قابل نمایش نبود. نام محصول را در فایل JSON بررسی کنید.");
+    }
 
-        const products = await Promise.all(
-          jsonFiles.map(async function (file) {
-            try {
-              const result = await fetch(file.download_url);
+  } catch (error) {
+    console.error("خطای بارگذاری محصولات:", error);
+    showMessage(
+      "بارگذاری محصولات انجام نشد. اینترنت را بررسی کنید و صفحه را دوباره باز کنید. اگر مشکل باقی ماند، باید اتصال به گیت‌هاب بررسی شود."
+    );
+  }
+}
 
-              if (!result.ok) {
-                return null;
-              }
-
-              return await result.json();
-            } catch (error) {
-              console.error('خطا در خواندن محصول:', file.name, error);
-              return null;
-            }
-          })
-        );
-
-        grid.replaceChildren();
-
-        let count = 0;
-
-        products.forEach(function (product) {
-          if (!product) {
-            return;
-          }
-
-          if (
-            product.published === fals
+loadProducts();
+</script>
+</body>
+</html>
