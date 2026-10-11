@@ -1,789 +1,644 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1b4332">
-<meta name="description" content="سبزکود؛ معرفی محصولات کود کشاورزی و اطلاعات خرید حضوری.">
-<title>سبزکود | فروشگاه کود کشاورزی</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174b35">
+<meta name="description" content="سبزکود؛ مشخصات و معرفی کود کامل آلی گرانوله Green Leaf و محصولات کشاورزی.">
+<meta name="robots" content="index, follow">
+<title>سبزکود | کود کامل آلی گرانوله Green Leaf</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --primary: #2d6a4f;
-    --primary-dark: #1b4332;
-    --primary-light: #40916c;
-    --bg: #f5f8f3;
-    --text: #26352c;
-    --muted: #68776c;
-    --white: #ffffff;
-    --border: #e0e9df;
-    --radius: 18px;
-    --shadow: 0 8px 25px rgba(27,67,50,.08);
+  --green: #176344;
+  --dark: #103e2c;
+  --light: #eaf5ed;
+  --bg: #f6f8f5;
+  --text: #24352b;
+  --muted: #718075;
+  --border: #e1e9e1;
+  --white: #fff;
+  --radius: 22px;
+  --shadow: 0 12px 35px rgba(16,62,44,.08);
 }
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: "Vazirmatn", Tahoma, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.9;
+  margin: 0;
+  font-family: Vazirmatn, Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.9;
 }
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.container {
-    width: min(1150px, 92%);
-    margin: auto;
-}
+a { text-decoration: none; color: inherit; }
+button { font: inherit; }
+.container { width: min(1120px, 92%); margin: auto; }
 
 header {
-    background: white;
-    box-shadow: 0 3px 18px rgba(0,0,0,.05);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-
-.nav-container {
-    width: min(1200px, 94%);
-    margin: auto;
-    min-height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
 }
-
 .logo {
-    color: var(--primary-dark);
-    font-size: 1.65rem;
-    font-weight: 800;
-    white-space: nowrap;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--dark);
+  white-space: nowrap;
 }
-
-.logo span {
-    margin-left: 5px;
-}
-
-nav ul {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-}
-
-nav a {
-    font-weight: 600;
-    font-size: .94rem;
-}
-
-nav a:hover {
-    color: var(--primary-light);
-}
+.logo span { color: var(--green); }
+nav { display: flex; flex-wrap: wrap; gap: 22px; }
+nav a { font-size: .92rem; font-weight: 600; }
+nav a:hover { color: var(--green); }
 
 .btn {
-    display: inline-block;
-    padding: 11px 22px;
-    border-radius: 12px;
-    font-family: inherit;
-    font-weight: 700;
-    transition: .2s;
-    cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
 }
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-}
+.btn-green { background: var(--green); color: white; }
+.btn-green:hover { background: var(--dark); transform: translateY(-2px); }
+.btn-white { background: white; color: var(--dark); }
 
 .hero {
-    padding: 95px 20px;
-    background: linear-gradient(130deg, #1b4332, #40916c);
-    color: white;
-    text-align: center;
+  padding: 76px 0;
+  color: white;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(166,220,170,.20), transparent 32%),
+    linear-gradient(125deg, #103e2c, #237b51);
+  overflow: hidden;
 }
-
-.hero-content {
-    max-width: 850px;
-    margin: auto;
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 35px;
 }
-
+.eyebrow {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 30px;
+  background: rgba(255,255,255,.09);
+  font-size: .88rem;
+}
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    line-height: 1.6;
-    margin-bottom: 18px;
+  font-size: clamp(2rem, 4.5vw, 3.3rem);
+  line-height: 1.55;
+  margin: 18px 0;
 }
-
-.hero p {
-    max-width: 720px;
-    margin: 0 auto 28px;
-    color: rgba(255,255,255,.9);
-    font-size: 1.08rem;
+.hero p { color: #e3f0e7; max-width: 600px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.hero-art {
+  min-height: 255px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 35px;
+  background: rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
 }
+.hero-art .leaf { font-size: 6rem; line-height: 1.5; }
+.hero-art strong { display: block; font-size: 1.25rem; }
+.hero-art small { color: #dcefe2; }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+section { padding: 66px 0; }
+.section-heading { text-align: center; margin-bottom: 30px; }
+.section-heading h2 { color: var(--dark); font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 7px; }
+.section-heading p { color: var(--muted); margin: 0; }
+
+.product-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 920px;
+  margin: auto;
+  gap: 24px;
 }
-
-.btn-white {
-    background: white;
-    color: var(--primary-dark);
-}
-
-.btn-outline {
-    border: 1px solid rgba(255,255,255,.75);
-    color: white;
-}
-
-.hero-badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 35px;
-}
-
-.hero-badges span {
-    padding: 7px 15px;
-    border-radius: 30px;
-    background: rgba(255,255,255,.12);
-    font-size: .9rem;
-}
-
-section {
-    padding: 75px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 38px;
-}
-
-.section-title h2 {
-    font-size: clamp(1.6rem, 4vw, 2.25rem);
-    color: var(--primary-dark);
-    margin-bottom: 8px;
-}
-
-.section-title p {
-    color: var(--muted);
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-}
-
 .product-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform .2s, box-shadow .2s;
-    min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 13px 30px rgba(27,67,50,.13);
+.product-visual {
+  background: linear-gradient(145deg, #e7f3e8, #f7faf5);
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
-
-.product-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    background: #edf5ec;
+.product-visual img {
+  display: block;
+  width: 100%;
+  height: 330px;
+  object-fit: contain;
+  border-radius: 14px;
 }
-
 .product-placeholder {
-    width: 100%;
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    background: linear-gradient(135deg, #e6f2e3, #f7faf4);
+  text-align: center;
+  color: var(--green);
 }
+.product-placeholder .symbol { font-size: 5rem; }
+.product-placeholder p { margin: 0; font-weight: 700; }
 
-.product-info {
-    padding: 22px;
+.product-info { padding: 28px; min-width: 0; }
+.product-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 30px;
+  color: var(--green);
+  background: var(--light);
+  font-size: .82rem;
+  font-weight: 700;
 }
-
 .product-info h3 {
-    color: var(--primary-dark);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  color: var(--dark);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  line-height: 1.7;
+  margin: 12px 0 8px;
 }
+.description { color: var(--muted); white-space: pre-line; margin: 0 0 18px; }
 
-.product-description {
-    color: var(--muted);
-    font-size: .94rem;
-    margin-bottom: 15px;
-    white-space: pre-line;
+.details-title { color: var(--dark); font-weight: 800; margin: 20px 0 9px; }
+.details {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  overflow: hidden;
+  font-size: .92rem;
 }
-
-.product-price {
-    color: var(--primary);
-    font-weight: 800;
-    margin-bottom: 14px;
+.details th, .details td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  overflow-wrap: anywhere;
 }
+.details tr:last-child th, .details tr:last-child td { border-bottom: 0; }
+.details th { background: #f2f7f1; color: var(--dark); width: 38%; font-weight: 700; }
+.details td { background: white; }
 
-.store-label {
-    background: #edf6ec;
-    color: var(--primary-dark);
-    border-radius: 10px;
-    padding: 8px 12px;
-    font-size: .9rem;
-    font-weight: 600;
+.price-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px;
+  background: #f1f8f1;
+  border: 1px solid #dcebdd;
+  border-radius: 14px;
+  margin-top: 18px;
 }
+.price-panel small { display: block; color: var(--muted); }
+.price-value { font-size: 1.1rem; font-weight: 800; color: var(--green); }
+.purchase-note { font-size: .84rem; color: var(--muted); margin-top: 13px; }
 
-.message {
-    grid-column: 1 / -1;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 28px 18px;
-    text-align: center;
-    color: var(--muted);
+.empty-state {
+  text-align: center;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 28px 18px;
+  border-radius: 18px;
+  color: var(--muted);
+  grid-column: 1 / -1;
 }
+.empty-state strong { display: block; color: var(--dark); margin-bottom: 7px; }
 
-.features {
-    background: white;
+.benefits { background: white; }
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
+.benefit {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
 }
+.benefit-icon { font-size: 2.2rem; }
+.benefit h3 { color: var(--dark); margin: 8px 0; font-size: 1.08rem; }
+.benefit p { color: var(--muted); font-size: .92rem; margin: 0; }
 
-.feature-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 26px 20px;
-    text-align: center;
-    background: #fff;
+.store-panel {
+  background: linear-gradient(125deg, #103e2c, #237b51);
+  color: white;
+  border-radius: 25px;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
 }
+.store-panel h2 { margin: 0 0 8px; }
+.store-panel p { color: #e0efe5; margin: 0; }
+.store-symbol { font-size: 3.5rem; flex-shrink: 0; }
 
-.feature-icon {
-    font-size: 2.3rem;
-    margin-bottom: 10px;
-}
+footer { background: #103e2c; color: white; padding: 28px 0; text-align: center; }
+footer p { color: #d5e5d9; margin: 5px 0; font-size: .9rem; }
 
-.feature-card h3 {
-    color: var(--primary-dark);
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-}
-
-.feature-card p {
-    font-size: .92rem;
-    color: var(--muted);
-}
-
-.store-section {
-    background: linear-gradient(135deg, #1b4332, #2d6a4f);
-    color: white;
-}
-
-.store-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-}
-
-.store-info h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.store-info p {
-    color: rgba(255,255,255,.9);
-    margin-bottom: 20px;
-}
-
-.store-box {
-    border: 1px solid rgba(255,255,255,.2);
-    background: rgba(255,255,255,.09);
-    padding: 28px;
-    border-radius: var(--radius);
-}
-
-.store-box .big-icon {
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.store-box h3 {
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-.store-box p {
-    margin-bottom: 0;
-    text-align: center;
-}
-
-.contact-card {
-    max-width: 750px;
-    margin: auto;
-    padding: 35px 25px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    text-align: center;
-}
-
-.contact-card p {
-    color: var(--muted);
-    margin-bottom: 20px;
-}
-
-footer {
-    background: var(--primary-dark);
-    color: white;
-    padding: 38px 20px 15px;
-}
-
-.footer-grid {
-    max-width: 1150px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 35px;
-}
-
-footer h3, footer h4 {
-    margin-bottom: 12px;
-}
-
-footer p, footer li {
-    color: rgba(255,255,255,.76);
-    font-size: .94rem;
-}
-
-footer ul {
-    list-style: none;
-}
-
-footer li {
-    margin-bottom: 6px;
-}
-
-footer a:hover {
-    color: white;
-}
-
-.footer-bottom {
-    max-width: 1150px;
-    margin: 30px auto 0;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,.15);
-    text-align: center;
-    color: rgba(255,255,255,.7);
-    font-size: .88rem;
-}
-
-@media (max-width: 900px) {
-    .products-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .nav-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 12px 0;
-    }
-
-    nav ul {
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .products-grid,
-    .features-grid,
-    .store-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding: 65px 18px;
-    }
-
-    section {
-        padding: 52px 0;
-    }
-
-    .product-img, .product-placeholder {
-        height: 200px;
-    }
-
-    .logo {
-        font-size: 1.45rem;
-    }
+@media (max-width: 760px) {
+  .nav { padding: 12px 0; flex-wrap: wrap; justify-content: center; }
+  nav { justify-content: center; gap: 12px 18px; }
+  .nav > .btn { display: none; }
+  .hero { padding: 48px 0; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-art { min-height: 190px; }
+  .hero-art .leaf { font-size: 4rem; }
+  section { padding: 45px 0; }
+  .product-card { grid-template-columns: 1fr; }
+  .product-visual { min-height: 250px; }
+  .product-visual img { height: 270px; }
+  .product-info { padding: 21px; }
+  .benefit-grid { grid-template-columns: 1fr; }
+  .store-panel { padding: 25px; flex-direction: column; text-align: center; }
 }
 </style>
 </head>
 
 <body>
-
 <header>
-    <div class="nav-container">
-        <a href="#" class="logo"><span>🌱</span> سبزکود</a>
-
-        <nav>
-            <ul>
-                <li><a href="#products">محصولات</a></li>
-                <li><a href="#features">مزایا</a></li>
-                <li><a href="#store">خرید حضوری</a></li>
-                <li><a href="#contact">تماس</a></li>
-            </ul>
-        </nav>
-
-        <a href="#products" class="btn btn-primary">مشاهده محصولات</a>
-    </div>
+  <div class="container nav">
+    <a class="logo" href="#"><span>🌱</span> سبزکود</a>
+    <nav aria-label="منوی اصلی">
+      <a href="#products">محصولات</a>
+      <a href="#benefits">مزایا</a>
+      <a href="#store">خرید حضوری</a>
+    </nav>
+    <a class="btn btn-green" href="#products">مشاهده محصولات</a>
+  </div>
 </header>
 
 <main>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>کود باکیفیت برای رشد بهتر محصول شما</h1>
-            <p>
-                به سبزکود خوش آمدید؛ محصولات کود کشاورزی را ببینید،
-                مشخصاتشان را بررسی کنید و برای خرید حضوری با فروشگاه هماهنگ شوید.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-white">مشاهده محصولات</a>
-                <a href="#store" class="btn btn-outline">اطلاعات فروشگاه</a>
-            </div>
-
-            <div class="hero-badges">
-                <span>🌱 معرفی محصولات</span>
-                <span>🪴 تنوع کود کشاورزی</span>
-                <span>🏪 خرید حضوری</span>
-            </div>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">🌿 همراه کشاورزی بهتر</span>
+        <h1>انتخاب آگاهانه برای زمین و محصولات شما</h1>
+        <p>در سبزکود، مشخصات محصولات کشاورزی را بررسی کنید و برای اطلاع از موجودی و قیمت روز، خرید خود را به‌صورت حضوری هماهنگ کنید.</p>
+        <div class="hero-actions">
+          <a class="btn btn-white" href="#products">دیدن محصولات ←</a>
+          <a class="btn" style="color:white;border:1px solid #ffffff88" href="#store">اطلاعات خرید</a>
         </div>
-    </section>
-
-    <section id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>محصولات سبزکود</h2>
-                <p>فهرست محصولات ثبت‌شده در پنل مدیریت</p>
-            </div>
-
-            <div class="products-grid" id="products-grid">
-                <div class="message">در حال بارگذاری محصولات…</div>
-            </div>
+      </div>
+      <div class="hero-art">
+        <div>
+          <div class="leaf">🌱</div>
+          <strong>سبزکود</strong>
+          <small>معرفی محصولات کشاورزی</small>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>چرا سبزکود؟</h2>
-                <p>اطلاعات محصولات را بررسی کنید و متناسب با نیازتان انتخاب کنید.</p>
-            </div>
+  <section id="products">
+    <div class="container">
+      <div class="section-heading">
+        <h2>محصولات سبزکود</h2>
+        <p>مشخصات محصولات ثبت‌شده در پنل مدیریت</p>
+      </div>
+      <div class="product-list" id="products-grid" aria-live="polite">
+        <div class="empty-state">در حال دریافت محصولات…</div>
+      </div>
+    </div>
+  </section>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>معرفی محصولات</h3>
-                    <p>مشاهده نام و مشخصات محصولات ثبت‌شده.</p>
-                </div>
+  <section id="benefits" class="benefits">
+    <div class="container">
+      <div class="section-heading">
+        <h2>خرید مطمئن‌تر با اطلاعات روشن</h2>
+        <p>مشخصات هر محصول را بررسی کنید و سپس برای خرید اقدام کنید.</p>
+      </div>
+      <div class="benefit-grid">
+        <article class="benefit">
+          <div class="benefit-icon">📋</div>
+          <h3>مشخصات محصول</h3>
+          <p>اطلاعات ثبت‌شده هر محصول در یک جدول مرتب نمایش داده می‌شود.</p>
+        </article>
+        <article class="benefit">
+          <div class="benefit-icon">🌱</div>
+          <h3>اطلاعات به‌روز</h3>
+          <p>فهرست محصولات از اطلاعات ثبت‌شده در مخزن سایت خوانده می‌شود.</p>
+        </article>
+        <article class="benefit">
+          <div class="benefit-icon">🏪</div>
+          <h3>خرید حضوری</h3>
+          <p>برای اطلاع از قیمت و موجودی روز، با فروشگاه هماهنگ کنید.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🔎</div>
-                    <h3>اطلاعات روشن</h3>
-                    <p>بررسی توضیحات و قیمت در صورت ثبت‌شدن.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🪴</div>
-                    <h3>تنوع محصولات</h3>
-                    <p>محصولات جدید را از طریق پنل مدیریت اضافه کنید.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🏪</div>
-                    <h3>خرید حضوری</h3>
-                    <p>این سایت برای معرفی محصولات است و سفارش آنلاین ندارد.</p>
-                </div>
-            </div>
+  <section id="store">
+    <div class="container">
+      <div class="store-panel">
+        <div>
+          <h2>خرید حضوری از سبزکود</h2>
+          <p>برای اطلاع از قیمت روز و موجودی محصولات، پیش از مراجعه هماهنگ کنید.</p>
+          <p>سفارش و پرداخت آنلاین در این نسخه فعال نیست.</p>
         </div>
-    </section>
-
-    <section id="store" class="store-section">
-        <div class="container">
-            <div class="store-grid">
-                <div class="store-info">
-                    <h2>خرید حضوری از سبزکود</h2>
-                    <p>
-                        برای خرید محصولات به فروشگاه مراجعه کنید.
-                        پیش از مراجعه می‌توانید از راه‌های ارتباطی فروشگاه
-                        درباره موجودی و قیمت روز سؤال کنید.
-                    </p>
-                    <p>🛒 ثبت سفارش و پرداخت آنلاین در این سایت فعال نیست.</p>
-                </div>
-
-                <div class="store-box">
-                    <div class="big-icon">🏪</div>
-                    <h3>فروشگاه سبزکود</h3>
-                    <p>
-                        برای درج نشانی و شماره تماس واقعی فروشگاه،
-                        اطلاعات مربوطه را در کد سایت تکمیل کنید.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>ارتباط با سبزکود</h2>
-                <p>برای اطلاع از موجودی و قیمت روز محصولات با فروشگاه تماس بگیرید.</p>
-            </div>
-
-            <div class="contact-card">
-                <p>
-                    نشانی و شماره تماس فروشگاه هنوز در این نسخه درج نشده است.
-                    پس از تکمیل اطلاعات واقعی، مشتریان می‌توانند از این قسمت
-                    برای ارتباط با فروشگاه استفاده کنند.
-                </p>
-                <a href="#store" class="btn btn-primary">اطلاعات خرید حضوری</a>
-            </div>
-        </div>
-    </section>
+        <div class="store-symbol">🏪</div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
-    <div class="footer-grid">
-        <div>
-            <h3>🌱 سبزکود</h3>
-            <p>معرفی محصولات کود کشاورزی و اطلاعات مورد نیاز مشتریان.</p>
-        </div>
-
-        <div>
-            <h4>دسترسی سریع</h4>
-            <ul>
-                <li><a href="#products">محصولات</a></li>
-                <li><a href="#features">مزایا</a></li>
-                <li><a href="#store">خرید حضوری</a></li>
-                <li><a href="#contact">تماس</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4>سبزکود</h4>
-            <p>معرفی محصولات؛ خرید فقط حضوری.</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        © <span id="year"></span> سبزکود | همه حقوق محفوظ است.
-    </div>
+  <div class="container">
+    <strong>🌱 سبزکود</strong>
+    <p>معرفی محصولات کشاورزی و اطلاعات خرید حضوری</p>
+    <p>© <span id="year"></span> سبزکود</p>
+  </div>
 </footer>
 
 <script>
 (() => {
-    const grid = document.getElementById("products-grid");
-    const year = document.getElementById("year");
+  const grid = document.getElementById("products-grid");
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    if (year) year.textContent = new Date().getFullYear();
-    if (!grid) return;
+  // اتصال فعلی به GitHub حفظ شده است.
+  const API =
+    "https://api.github.com/repos/a13912020/fertilizer-store/contents/products?ref=main";
 
-    const API =
-        "https://api.github.com/repos/a13912020/fertilizer-store/contents/products?ref=main";
+  function showMessage(title, detail) {
+    grid.replaceChildren();
+    const box = document.createElement("div");
+    box.className = "empty-state";
 
-    function showMessage(text) {
-        grid.replaceChildren();
-        const box = document.createElement("div");
-        box.className = "message";
-        box.textContent = text;
-        grid.appendChild(box);
+    const heading = document.createElement("strong");
+    heading.textContent = title;
+    box.appendChild(heading);
+
+    const message = document.createElement("div");
+    message.textContent = detail;
+    box.appendChild(message);
+    grid.appendChild(box);
+  }
+
+  function getValue(obj, keys) {
+    for (const key of keys) {
+      if (obj[key] !== undefined && obj[key] !== null &&
+          String(obj[key]).trim() !== "") {
+        return String(obj[key]).trim();
+      }
+    }
+    return "";
+  }
+
+  function addRow(table, label, value) {
+    if (!value) return;
+
+    const row = document.createElement("tr");
+    const th = document.createElement("th");
+    const td = document.createElement("td");
+
+    th.scope = "row";
+    th.textContent = label;
+    td.textContent = value;
+
+    row.append(th, td);
+    table.appendChild(row);
+  }
+
+  function makeProduct(product) {
+    const name = getValue(product, ["name", "title", "نام"]);
+    if (!name) return null;
+
+    const description = getValue(product, [
+      "description", "desc", "details", "توضیحات"
+    ]);
+    const price = getValue(product, ["price", "قیمت"]) ||
+      "برای اطلاع از قیمت تماس بگیرید";
+
+    let img = getValue(product, ["image", "img", "photo", "تصویر"]);
+
+    if (img && !/^https?:\/\//i.test(img)) {
+      img = "https://raw.githubusercontent.com/a13912020/fertilizer-store/main/" +
+        img.replace(/^\/+/, "");
     }
 
-    function getValue(obj, keys) {
-        for (const key of keys) {
-            if (obj[key] !== undefined && obj[key] !== null &&
-                String(obj[key]).trim() !== "") {
-                return String(obj[key]).trim();
-            }
-        }
-        return "";
+    const card = document.createElement("article");
+    card.className = "product-card";
+
+    const visual = document.createElement("div");
+    visual.className = "product-visual";
+
+    if (img) {
+      const image = document.createElement("img");
+      image.src = img;
+      image.alt = name;
+      image.loading = "lazy";
+
+      image.onerror = () => {
+        const fallback = document.createElement("div");
+        fallback.className = "product-placeholder";
+
+        const symbol = document.createElement("div");
+        symbol.className = "symbol";
+        symbol.textContent = "🌱";
+
+        const caption = document.createElement("p");
+        caption.textContent = name;
+
+        fallback.append(symbol, caption);
+        visual.replaceChildren(fallback);
+      };
+
+      visual.appendChild(image);
+    } else {
+      const fallback = document.createElement("div");
+      fallback.className = "product-placeholder";
+
+      const symbol = document.createElement("div");
+      symbol.className = "symbol";
+      symbol.textContent = "🌱";
+
+      const caption = document.createElement("p");
+      caption.textContent = name;
+
+      fallback.append(symbol, caption);
+      visual.appendChild(fallback);
     }
 
-    function makeProduct(product) {
-        const name = getValue(product, ["name", "title", "نام"]);
-        if (!name) return null;
+    const info = document.createElement("div");
+    info.className = "product-info";
 
-        const description = getValue(product, [
-            "description", "desc", "details", "توضیحات"
-        ]);
+    const tag = document.createElement("span");
+    tag.className = "product-tag";
+    tag.textContent = "🌿 محصول سبزکود";
+    info.appendChild(tag);
 
-        const price = getValue(product, ["price", "قیمت"]);
-        let img = getValue(product, ["image", "img", "photo", "تصویر"]);
+    const title = document.createElement("h3");
+    title.textContent = name;
+    info.appendChild(title);
 
-        if (img && !/^https?:\/\//i.test(img)) {
-            img = "https://raw.githubusercontent.com/a13912020/fertilizer-store/main/" +
-                img.replace(/^\/+/, "");
-        }
-
-        const card = document.createElement("article");
-        card.className = "product-card";
-
-        if (img) {
-            const image = document.createElement("img");
-            image.className = "product-img";
-            image.src = img;
-            image.alt = name;
-            image.loading = "lazy";
-            image.onerror = () => {
-                const placeholder = document.createElement("div");
-                placeholder.className = "product-placeholder";
-                placeholder.textContent = "🌱";
-                image.replaceWith(placeholder);
-            };
-            card.appendChild(image);
-        } else {
-            const placeholder = document.createElement("div");
-            placeholder.className = "product-placeholder";
-            placeholder.textContent = "🌱";
-            card.appendChild(placeholder);
-        }
-
-        const info = document.createElement("div");
-        info.className = "product-info";
-
-        const title = document.createElement("h3");
-        title.textContent = name;
-        info.appendChild(title);
-
-        if (description) {
-            const desc = document.createElement("p");
-            desc.className = "product-description";
-            desc.textContent = description;
-            info.appendChild(desc);
-        }
-
-        if (price) {
-            const priceText = document.createElement("p");
-            priceText.className = "product-price";
-            priceText.textContent = "قیمت: " + price;
-            info.appendChild(priceText);
-        }
-
-        const storeNote = document.createElement("div");
-        storeNote.className = "store-label";
-        storeNote.textContent = "🏪 خرید فقط به‌صورت حضوری";
-        info.appendChild(storeNote);
-
-        card.appendChild(info);
-        return card;
+    if (description) {
+      const desc = document.createElement("p");
+      desc.className = "description";
+      desc.textContent = description;
+      info.appendChild(desc);
     }
 
-    async function loadProducts() {
-        showMessage("در حال بارگذاری محصولات…");
+    const detailsTitle = document.createElement("div");
+    detailsTitle.className = "details-title";
+    detailsTitle.textContent = "جدول مشخصات محصول";
+    info.appendChild(detailsTitle);
 
-        try {
-            const response = await fetch(API, {
-                headers: { "Accept": "application/vnd.github+json" },
-                cache: "no-store"
-            });
+    const table = document.createElement("table");
+    table.className = "details";
+    const tbody = document.createElement("tbody");
 
-            if (!response.ok) {
-                throw new Error("GitHub API: " + response.status);
-            }
+    // فقط اطلاعاتی که واقعاً در JSON محصول وجود دارند نمایش داده می‌شوند.
+    addRow(tbody, "نام محصول", name);
+    addRow(tbody, "وزن / بسته‌بندی", getValue(product, [
+      "weight", "package", "size", "وزن", "بسته‌بندی"
+    ]));
+    addRow(tbody, "دسته‌بندی", getValue(product, [
+      "category", "type", "دسته‌بندی", "نوع"
+    ]));
+    addRow(tbody, "ترکیبات", getValue(product, [
+      "composition", "ingredients", "ترکیبات"
+    ]));
+    addRow(tbody, "روش مصرف", getValue(product, [
+      "usage", "application", "روش مصرف"
+    ]));
+    addRow(tbody, "مزایا", getValue(product, [
+      "benefits", "مزایا"
+    ]));
+    addRow(tbody, "موجودی", getValue(product, [
+      "stock", "availability", "موجودی"
+    ]));
 
-            const files = await response.json();
-            const jsonFiles = files.filter(file =>
-                file.type === "file" && file.name.toLowerCase().endsWith(".json")
-            );
-
-            if (jsonFiles.length === 0) {
-                showMessage("هنوز محصولی ثبت نشده است.");
-                return;
-            }
-
-            const results = await Promise.allSettled(
-                jsonFiles.map(async file => {
-                    const res = await fetch(file.download_url, {
-                        cache: "no-store"
-                    });
-
-                    if (!res.ok) {
-                        throw new Error("خطا در خواندن " + file.name);
-                    }
-
-                    return await res.json();
-                })
-            );
-
-            grid.replaceChildren();
-            let count = 0;
-
-            results.forEach(result => {
-                if (result.status !== "fulfilled") return;
-
-                const card = makeProduct(result.value);
-                if (card) {
-                    grid.appendChild(card);
-                    count++;
-                }
-            });
-
-            if (count === 0) {
-                showMessage("محصولی نمایش داده نشد. فایل‌های JSON پوشه products را بررسی کنید.");
-            }
-        } catch (error) {
-            console.error("SabzKood products error:", error);
-            showMessage(
-                "بارگذاری محصولات ناموفق بود. اتصال اینترنت یا دسترسی به GitHub را بررسی کنید و دوباره تلاش کنید."
-            );
-        }
+    if (tbody.children.length === 0) {
+      addRow(tbody, "نام محصول", name);
     }
 
-    loadProducts();
+    table.appendChild(tbody);
+    info.appendChild(table);
+
+    const pricePanel = document.createElement("div");
+    pricePanel.className = "price-panel";
+
+    const priceLabel = document.createElement("div");
+    const small = document.createElement("small");
+    small.textContent = "قیمت محصول";
+
+    const priceValue = document.createElement("div");
+    priceValue.className = "price-value";
+    priceValue.textContent = price;
+
+    priceLabel.append(small, priceValue);
+    pricePanel.appendChild(priceLabel);
+    info.appendChild(pricePanel);
+
+    const note = document.createElement("p");
+    note.className = "purchase-note";
+    note.textContent = "🏪 خرید حضوری؛ برای قیمت و موجودی روز هماهنگ کنید.";
+    info.appendChild(note);
+
+    card.append(visual, info);
+    return card;
+  }
+
+  async function loadProducts() {
+    showMessage("در حال بارگذاری محصولات…", "لطفاً چند لحظه صبر کنید.");
+
+    try {
+      const response = await fetch(API, {
+        headers: { "Accept": "application/vnd.github+json" },
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("GitHub API: " + response.status);
+      }
+
+      const files = await response.json();
+
+      const jsonFiles = files.filter(file =>
+        file.type === "file" &&
+        file.name.toLowerCase().endsWith(".json")
+      );
+
+      if (jsonFiles.length === 0) {
+        showMessage("هنوز محصولی ثبت نشده است.", "محصولات را از پنل مدیریت ثبت کنید.");
+        return;
+      }
+
+      const results = await Promise.allSettled(
+        jsonFiles.map(async file => {
+          const res = await fetch(file.download_url, { cache: "no-store" });
+          if (!res.ok) throw new Error("خطا در خواندن " + file.name);
+          return await res.json();
+        })
+      );
+
+      grid.replaceChildren();
+      let count = 0;
+
+      results.forEach(result => {
+        if (result.status !== "fulfilled") return;
+
+        // پشتیبانی از فایل‌هایی که یک محصول یا فهرست محصولات دارند.
+        const data = result.value;
+        const products = Array.isArray(data) ? data : [data];
+
+        products.forEach(product => {
+          if (!product || typeof product !== "object") return;
+          const card = makeProduct(product);
+          if (card) {
+            grid.appendChild(card);
+            count++;
+          }
+        });
+      });
+
+      if (count === 0) {
+        showMessage(
+          "محصولی برای نمایش پیدا نشد.",
+          "ساختار فایل‌های JSON پوشه products را بررسی کنید."
+        );
+      }
+    } catch (error) {
+      console.error("SabzKood products error:", error);
+      showMessage(
+        "بارگذاری محصولات انجام نشد.",
+        "اتصال اینترنت یا دسترسی به GitHub را بررسی کنید."
+      );
+    }
+  }
+
+  loadProducts();
 })();
 </script>
-
 </body>
-</html>
+    </html>
+    
